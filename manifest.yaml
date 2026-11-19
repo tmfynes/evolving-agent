@@ -19,6 +19,9 @@ applications:
         ai.tanzu.com/type: agent
     services:
       - qwen38
+      - paddy-brain
+      - hub-mcp
+      - wavefront-mcp
       - evolving-agent-github
     env:
       TANZU_AGENT_DISPLAY_NAME: Evolving Agent
@@ -29,6 +32,9 @@ applications:
       TANZU_AGENT_FILESYSTEM_ACCESS: read-write
       TANZU_AGENT_TOOL_PERMISSION_MODE: allow
       TANZU_AGENT_ENABLE_DEBUG_UI: "true"
+      TANZU_AGENT_ENABLE_MEMORY_PANEL: "true"
+      TANZU_AGENT_AUTH_OAUTH_SCOPES: openid
+      TANZU_AGENT_BASE_URL: https://evolving-agent.homelab1.fynesy.com
       SKILLS_REPO_URL: https://github.com/tmfynes/evolving-agent.git
       SKILLS_REPO_BRANCH: main
       GIT_AUTHOR_NAME: Evolving Agent

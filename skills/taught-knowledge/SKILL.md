@@ -11,7 +11,7 @@ Append durable facts here (not secrets). Newest last. Each entry: **trigger** â†
 
 - **This agent** is `evolving-agent` in org `HubOrg1`, space `HubSpace1`, om1 foundation (`https://api.homelab1.fynesy.com`). Route: `https://evolving-agent.homelab1.fynesy.com`.
 - **Source of truth** is `https://github.com/tmfynes/evolving-agent`. Skill updates go there (PR by default, main if asked). Applying them to the running app needs `cf push` from `main`.
-- **Model** is the space `qwen38` `ai-models` instance (plan `qwen38`).
+- **LLM / memory / MCP / SSO** match `hubagent` in this space: `qwen38`, `paddy-brain` (agent-memory plan `memory`), `hub-mcp`, `wavefront-mcp`, `hub-sso` (`p-identity` plan `hub`).
 - GitHub credentials are the bound user-provided service `evolving-agent-github` (`cf cups`). Do not print them.
 
 ## Shortcuts

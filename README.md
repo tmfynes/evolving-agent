@@ -31,7 +31,16 @@ cf cups evolving-agent-github -p github-creds.json
 cf push -f manifest.yaml -p .
 ```
 
-The manifest binds `qwen38` (`ai-models` / plan `qwen38`) and `evolving-agent-github`.
+The manifest binds the same LLM, memory, and MCP instances as `hubagent` (`qwen38`, `paddy-brain`, `hub-mcp`, `wavefront-mcp`) plus `evolving-agent-github`. Bind SSO after push so the callback matches this app:
+
+```bash
+cf bind-service evolving-agent hub-sso --wait -c '{
+  "grant_types": ["authorization_code"],
+  "redirect_uris": ["https://evolving-agent.homelab1.fynesy.com/api/auth/callback"],
+  "scopes": ["openid"]
+}'
+cf restage evolving-agent
+```
 
 Optional: `cf set-env evolving-agent GITHUB_TOKEN '<pat>'` so `gh` sees the token without parsing `VCAP_SERVICES`. Prefer the cups binding as the registered copy.
 
